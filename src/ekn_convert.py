@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import array
 import csv
 import os
@@ -46,7 +48,7 @@ class EknFile():
 
     def __init__(self, infile, room="not set"):
         """initializing steps:
-        extract metadata informations from filename
+        extract metadata information from filename
         read in binary file and convert to list"""
 
         self.infile = infile
@@ -84,7 +86,6 @@ class EknFile():
         with open(self.infile, "rb") as _in:
             """put infile into an array for further processing"""
             bs = array.array('f', _in.read())
-
         self._starttime = datetime(self.year, 1, 1, 0, 0)
         self._endtime = datetime(self.year, 12, 31, 23, 45)
         self._currtime = self._starttime
@@ -167,4 +168,4 @@ class EknFile():
                     x[1] = str(x[1]).replace(".", ",")
 
                 if self.strip_future_values == False or _recent_timestamp >= x[0]:
-                    fw.writerow([x[0], str(x[1])])
+                    fw.writerow([datetime.strftime(x[0], "%Y-%m-%d %H:%M:%S"), str(x[1])])

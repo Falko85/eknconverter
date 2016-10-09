@@ -1,0 +1,1 @@
+A class to read in My Gekko trend files and write them to a csv.

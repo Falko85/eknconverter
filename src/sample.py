@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import glob
 import os
 
-from src.ekn_convert import EknFile
+from ekn_convert import EknFile
 
-# sample code to convert all ekn files in a directory to csv
-os.chdir("D:/mygekko/trend/")
+## sample code to convert all ekn files in a directory to csv
+os.chdir("D:/mygekko/")
 ekn = []
 
 for file in glob.glob("*.ekn"):
